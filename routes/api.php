@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 //auth controller
 use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\ProductController;
 
 //product controller
@@ -50,9 +51,8 @@ Route::middleware("auth:sanctum")->group(function(){
 
 );
 
-
-
-
+Route::post("/checkout",[OrderController::class,"checkout"]);
+Route::get("/success",[OrderController::class,"success"])->name("api.checkout.success");
 
 
 
